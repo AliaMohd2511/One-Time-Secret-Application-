@@ -1,0 +1,29 @@
+services:
+  angular-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: nginx-stage  # This refers to the NGINX stage of the Dockerfile
+    ports:
+      - "4200:80"  # Map port 4200 of the container to port 80 of the host
+    restart: always
+    depends_on:
+      - express-api  # Ensure that the API is up before the Angular app
+
+  express-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: express-stage  # This refers to the Express API stage of the Dockerfile
+    ports:
+      - "3000:3000"  # Map port 3000 of the container to port 3000 of the host
+    environment:
+      - REDIS_HOST=redis  # Use the service name for Redis
+    restart: always
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
