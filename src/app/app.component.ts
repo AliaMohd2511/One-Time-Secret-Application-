@@ -1,24 +1,13 @@
-main { 
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+import { Component } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
-.brand-name {
-  background-color: #f8f8f800;
-  display: flex;
-  align-items: center;
-  padding: 2rem;
-}
-
-.brand-logo {
-  width: 60px;
-  margin-left: 25px; /* Adjust this value as needed */
-}
-
-.content {
-  flex: 1;
-  padding: 20px;
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterLink, RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+})
+export class AppComponent {
+  title = 'one time secret';
 }
