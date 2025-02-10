@@ -43,7 +43,7 @@ To get the One-Time Secret app running on your local system, follow these steps:
 
 1. Clone the repository:
 ```
-git clone 
+git clone https://github.com/AliaMohd2511/One-Time-Secret-Application-
 ```
 
 ## API Endpoints
